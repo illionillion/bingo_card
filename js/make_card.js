@@ -43,7 +43,7 @@ function make_card(){
     for (let j = 0; j < bingo_data[i].length; j++) {
       // console.log(bingo_data[i][j]);
       // console.log(bingo_text);
-      bingo_text+="<td id="+i+"-"+j+">"+bingo_data[i][j]+"</td>";
+      bingo_text+="<td id="+i+"-"+j+" onclick='make_hole(this)'>"+bingo_data[i][j]+"</td>";
     }
     bingo_text+="</tr>";
 

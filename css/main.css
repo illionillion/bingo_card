@@ -13,3 +13,7 @@ table{
 .hole{
   background-color: red;
 }
+
+td{
+  border-radius: 50%;
+}
