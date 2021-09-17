@@ -3,6 +3,7 @@ table{
   width: 300px;
   height: 300px;
   text-align: center;
+  background-color: #FDF0C7;
 }
 
 #make_card{
@@ -17,4 +18,6 @@ table{
 td{
   border-radius: 50%;
   width: 20%;
+  background-color: #fff;
+  font-size: 1.2rem;
 }

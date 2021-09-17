@@ -24,7 +24,7 @@ function make_card(){
       
       bingo_rand[r]=num;
       r++;
-      if(i==2&&j==2)num="Go";//中央のみ
+      if(i==2&&j==2)num="Free";//中央のみ
       bingo_data_r[j]=num ;
 
     }
