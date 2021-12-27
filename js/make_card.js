@@ -17,7 +17,7 @@ function make_card(){
 
       while (flag) {
         num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-        console.log(bingo_rand.indexOf(num));
+        // console.log(bingo_rand.indexOf(num));
         if (bingo_rand.indexOf(num)===-1) {
           flag=false;
         }
@@ -32,24 +32,32 @@ function make_card(){
     bingo_data[i]=bingo_data_r;
   }
 
-  console.log(bingo_data);
-  console.log(bingo_rand);
-  let bingo_text="<caption>BINGO</caption><tbody>";
+  // console.log(bingo_data);
+  // console.log(bingo_rand);
+  let bingo_text="<caption>BINGO</caption>";
+  $("#bingo_card").html(bingo_text);
 
+  let tbody_ele=document.createElement("tbody");
+  let tr_fragment=document.createDocumentFragment();
   //innnerHTMLよりcreateElementの方がDOM操作しやすい？
   for(let i=0;i<bingo_data.length;i++){
+    let td_fragment=document.createDocumentFragment();
+    let tr_ele=document.createElement("tr");
     // console.log(bingo_data[i]);
-    // let bingo_text=$("#bingo_card").html();
-    bingo_text+="<tr>";
     for (let j = 0; j < bingo_data[i].length; j++) {
       // console.log(bingo_data[i][j]);
-      // console.log(bingo_text);
-      bingo_text+="<td id="+i+"-"+j+" onclick='make_hole(this)'>"+bingo_data[i][j]+"</td>";
+      let td_ele=document.createElement("td");
+      td_ele.innerHTML=bingo_data[i][j];
+      td_ele.id=i+"-"+j;
+      td_ele.onclick=function(){make_hole(this);};
+      td_fragment.appendChild(td_ele);
     }
-    bingo_text+="</tr>";
+    tr_ele.appendChild(td_fragment);
+    tr_fragment.appendChild(tr_ele);
 
   }
-  bingo_text+="</tbody>"
-  $("#bingo_card").html(bingo_text);
+  // console.log(tr_fragment);
+  tbody_ele.appendChild(tr_fragment);
+  document.getElementById("bingo_card").appendChild(tbody_ele);
 
 }

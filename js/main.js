@@ -8,8 +8,8 @@ function make_hole(ele){
 
 $(function(){
   make_card();
-  $("#make_card_btn")[0].addEventListener("click",function () { make_card(); })
-  console.log($("td"));
-  console.log($("td").length);
+  $("#make_card_btn").on("click",function () { make_card(); })
+  // console.log($("td"));
+  // console.log($("td").length);
 })
 
