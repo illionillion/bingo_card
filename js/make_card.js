@@ -2,6 +2,7 @@ function make_card(){
   $("#bingo_card").html("");
   let bingo_data=[];//ビンゴカードに割り振る数字
   let bingo_rand=[];//ビンゴカードで既出の数字
+  let rnd_list=[[1,15],[16,30],[31,45],[46,60],[61,75]];
   let r=0;          //総ループ回数
 
   for (let i = 0; i < 5; i++) {
@@ -10,8 +11,8 @@ function make_card(){
       
       let flag=true;
       
-      const min = 1 ;
-      const max = 99 ;
+      const min = rnd_list[j][0] ;
+      const max = rnd_list[j][1] ;
       let num;
 
       while (flag) {
