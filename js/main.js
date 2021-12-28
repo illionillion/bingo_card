@@ -10,6 +10,14 @@ function make_hole(ele){
 
 $(function(){
   // make_card();
+
+  if (JSON.parse(localStorage.getItem("bingo_card_data"))) {
+    // console.log(JSON.parse(localStorage.getItem("bingo_card_data")));
+    make_card(JSON.parse(localStorage.getItem("bingo_card_data")));
+    create_status="start";
+    $("#make_card_btn").val("作成済み");
+  }
+
   $("#make_card_btn").on("click",function () { 
   
     switch (create_status) {
@@ -20,13 +28,13 @@ $(function(){
           if (create_status=="stop") {
             clearInterval(intervalId);
           }
-          make_card();
+          make_card(make_data());
           
         }, 100);
         break;
       case "start":
         create_status="stop";
-        $(this).val("終了");
+        $(this).val("作成済み");
         break;
     
       default:

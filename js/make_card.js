@@ -1,5 +1,5 @@
-function make_card(){
-  $("#bingo_card").html("");
+function make_data(){
+
   let bingo_data=[];//ビンゴカードに割り振る数字
   let bingo_rand=[];//ビンゴカードで既出の数字
   let rnd_list=[[1,15],[16,30],[31,45],[46,60],[61,75]];
@@ -31,6 +31,18 @@ function make_card(){
     }
     bingo_data[i]=bingo_data_r;
   }
+
+  if (window.localStorage) {
+    localStorage.setItem("bingo_card_data",JSON.stringify(bingo_data));
+  }
+
+  // make_card(bingo_data)
+  return bingo_data;
+}
+
+function make_card(bingo_data){
+
+  $("#bingo_card").html("");
 
   // console.log(bingo_data);
   // console.log(bingo_rand);
