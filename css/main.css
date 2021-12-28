@@ -11,6 +11,10 @@ table{
   text-align: center;
 }
 
+#make_card_btn{
+  margin: 5px;
+}
+
 .hole{
   background-color: #E5E5E5;
 }
