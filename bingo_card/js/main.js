@@ -2,14 +2,27 @@
 // console.log("ok");
 
 let create_status="init";
+let hole_list=[];
 
 function make_hole(ele){
-  console.log(ele);
+  // console.log(ele);
   $(ele).toggleClass("hole");
+  // console.log($(ele).data("hole_id"));
+  if ($(ele).hasClass("hole")) {
+    hole_list.push($(ele).data("hole_id"));
+  }else{
+    hole_list=hole_list.filter((x)=>{return x!=$(ele).data("hole_id");});
+  }
+  // console.log(hole_list);
+  localStorage.setItem("bingo_card_hole_data",JSON.stringify(hole_list));
 }
 
 $(function(){
   // make_card();
+  
+  if (JSON.parse(localStorage.getItem("bingo_card_hole_data"))) {
+    hole_list=JSON.parse(localStorage.getItem("bingo_card_hole_data"));
+  }
 
   if (JSON.parse(localStorage.getItem("bingo_card_data"))) {
     // console.log(JSON.parse(localStorage.getItem("bingo_card_data")));
