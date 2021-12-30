@@ -4,27 +4,65 @@ $(function(){
     let check_list=[];
     create_check_list(check_list);
 
+    let status="stop";
+
     $("#output_btn").on("click",function(){
 
-        // $("#num_list").html(check_list);
-        create_check_list(check_list);
+        switch (status) {
+            case "stop":
+                status="start";
+                $("#output_btn").val("ストップ");
+                create_check_list(check_list);
 
-        const min=1;
-        const max=75;
-        let num=0;
-        while (true) {
-            num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-            if (check_list.indexOf(num)===-1) {
-                check_list.push(num);
+                let intervalId=setInterval(() => {
+
+                    const min=1;
+                    const max=75;
+                    let num=0;
+                    while (true) {
+                        num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+                        if (check_list.indexOf(num)===-1) {
+                            // check_list.push(num);
+                            break;
+                        }
+                        // console.log(check_list.length);
+                        if (check_list.length>=75) {
+                            num="終了";
+                            status="stop";
+                            break;
+                        }
+                    }
+                    console.log(check_list);
+                    $("#output_num").html(num);
+
+                    if (status=="stop") {
+
+                        clearInterval(intervalId);
+
+                        check_list.push(num);
+                        check_list=check_list.filter((x)=>{return x!="終了";});
+                        
+
+                        $("#output_btn").val("番号出す");
+
+
+                    }
+            
+
+                }, 100);
+                
                 break;
-            }
-            if (check_list.length==75) {
-                num="終了";
+            case "start":
+                status="stop";
+
                 break;
-            }
+        
+            default:
+                break;
         }
-        console.log(check_list);
-        $("#output_num").html(num);
+
+        // $("#num_list").html(check_list);
+
 
     })
 
@@ -49,7 +87,7 @@ function create_check_list(check_list){
             if (check_list.length>cnt) {
                 $(td_ele).html(check_list[cnt]);
             }else{
-                $(td_ele).html("　");
+                $(td_ele).html("　　");
             }
             td_fragment.appendChild(td_ele);
             cnt++;
