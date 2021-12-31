@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>データリセット</title>
+    <script src="../common/js/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window).on("load",function(){
+            $("input[type='button']").on("click",function(){
+                // console.log($(this).data("bingo"));
+                switch ($(this).data("bingo")) {
+                    case "card":
+                        localStorage.removeItem("bingo_card_data");
+                        localStorage.removeItem("bingo_card_hole_data");
+                        break;
+                    case "machine":
+                        localStorage.removeItem("bingo_num_data");
+                        break;
+                
+                    default:
+                        break;
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="ビンゴカード" data-bingo="card">
+    <input type="button" value="ビンゴマシーン" data-bingo="machine">
+</body>
+</html>
