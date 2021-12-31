@@ -1,7 +1,24 @@
 "use strict";
 
+let check_list=[];
+let tablewidth=false;
+
+$(window).on('load resize',function(){
+    // console.log(window.screen.width);
+    // console.log(window.outerWidth);
+    // console.log($("body").css("width").replace("px",""));
+
+    if (Number($("body").css("width").replace("px",""))<=700) {
+        tablewidth=true;
+    }else{
+        tablewidth=false;
+    }
+    create_check_list(check_list);
+    // console.log(tablewidth);
+});
+
 $(function(){
-    let check_list=[];
+
     create_check_list(check_list);
 
     let status="stop";
@@ -79,10 +96,18 @@ function create_check_list(check_list){
     let tr_fragment=document.createDocumentFragment();
 
     let cnt=0;
-    for (let i = 1; i <= 5; i++) {
+    let t_row=5;
+    let t_col=15;
+
+    if (tablewidth) {
+        t_row=15;
+        t_col=5;
+    }
+
+    for (let i = 1; i <= t_row; i++) {
         let tr_ele=document.createElement("tr");
         let td_fragment=document.createDocumentFragment();
-        for (let j = 1; j <= 15; j++) {
+        for (let j = 1; j <= t_col; j++) {
             let td_ele=document.createElement("td");
             if (check_list.length>cnt) {
                 $(td_ele).html(check_list[cnt]);
