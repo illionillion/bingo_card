@@ -3,6 +3,12 @@
 let check_list=[];
 let tablewidth=false;
 
+if (window.localStorage) {
+    if (JSON.parse(localStorage.getItem("bingo_num_data"))) {
+        check_list=JSON.parse(localStorage.getItem("bingo_num_data"));
+    }
+}
+
 $(window).on('load resize',function(){
     // console.log(window.screen.width);
     // console.log(window.outerWidth);
@@ -59,7 +65,9 @@ $(function(){
                         check_list.push(num);
                         check_list=check_list.filter((x)=>{return x!="終了";});
                         
-
+                        if (window.localStorage) {
+                            localStorage.setItem("bingo_num_data",JSON.stringify(check_list));
+                        }
                         $("#output_btn").val("番号出す");
 
 
