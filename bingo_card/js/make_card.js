@@ -59,12 +59,15 @@ function make_card(bingo_data){
     for (let j = 0; j < bingo_data[i].length; j++) {
       // console.log(bingo_data[i][j]);
       let td_ele=document.createElement("td");
-      td_ele.innerHTML=bingo_data[i][j];
-      td_ele.dataset.hole_id=i+"-"+j;
-      if (hole_list.indexOf(i+"-"+j)!=-1) {
-        $(td_ele).addClass("hole");
+      if (bingo_data[i][j]) {
+        td_ele.innerHTML=bingo_data[i][j];
+        td_ele.dataset.hole_id=i+"-"+j;
+        if (hole_list.indexOf(i+"-"+j)!=-1) {
+          $(td_ele).addClass("hole");
+        }
+        td_ele.onclick=function(){make_hole(this);};          
       }
-      td_ele.onclick=function(){make_hole(this);};
+      
       td_fragment.appendChild(td_ele);
     }
     tr_ele.appendChild(td_fragment);

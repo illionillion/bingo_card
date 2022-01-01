@@ -18,7 +18,6 @@ function make_hole(ele){
 }
 
 $(function(){
-  // make_card();
   
   if (JSON.parse(localStorage.getItem("bingo_card_hole_data"))) {
     hole_list=JSON.parse(localStorage.getItem("bingo_card_hole_data"));
@@ -29,6 +28,14 @@ $(function(){
     make_card(JSON.parse(localStorage.getItem("bingo_card_data")));
     create_status="start";
     $("#make_card_btn").val("作成済み");
+  }else{
+
+    let initarr=new Array(5).fill(new Array(5).fill(""));
+    // for (let i = 0; i < initarr.length; i++) {
+    //   initarr[i]=new Array(5).fill("");      
+    // }
+    // console.log(initarr);
+    make_card(initarr);
   }
 
   $("#make_card_btn").on("click",function () { 
