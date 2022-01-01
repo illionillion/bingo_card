@@ -46,7 +46,7 @@ function make_card(bingo_data){
 
   // console.log(bingo_data);
   // console.log(bingo_rand);
-  let bingo_text="<caption>BINGO</caption>";
+  let bingo_text='<caption><span class="b">B</span><span class="i">I</span><span class="n">N</span><span class="g">G</span><span class="o">O</span></caption>';
   $("#bingo_card").html(bingo_text);
 
   let tbody_ele=document.createElement("tbody");

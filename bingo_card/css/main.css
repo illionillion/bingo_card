@@ -34,3 +34,27 @@ td{
   background-color: #fff;
   font-size: 1.2rem;
 }
+
+caption{
+  font-size: 1.5em;
+}
+
+caption span{
+  margin: 0px 20px;
+}
+
+.b{
+  color: red;
+}
+.i{
+  color: orange;
+}
+.n{
+  color: blue;
+}
+.g{
+  color: green;
+}
+.o{
+  color: purple;
+}
