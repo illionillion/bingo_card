@@ -63,7 +63,65 @@ $(function(){
   
   
   })
+
+  hide_animate();
+
   // console.log($("td"));
   // console.log($("td").length);
+  // $("caption span").animate({display:"none",display:"block"}, 2000, function(){console.log(this);});
+  
+  // (async function(){
+    // $("caption span").each(function(i,e){
+
+
+    // });
+  // })();
+
+  // $("caption span").css("opacity",0);
 })
 
+function hide_animate(){
+
+  let i=0;
+
+  let animateId=setInterval(() => {
+
+      if (i>=5) {
+        clearInterval(animateId);
+        // setTimeout(() => {
+          appear_animate();
+          return;
+        // }, 1000);
+      }
+      console.log($("caption").find("span").eq(i));
+      console.log(i);
+      $("caption").find("span").eq(i).css({"opacity":0});
+        
+      i++;
+
+  }, 1000);
+
+}
+function appear_animate(){
+
+  let i=0;
+
+  let animateId=setInterval(() => {
+
+      if (i>=5) {
+        clearInterval(animateId);
+        // setTimeout(() => {
+          hide_animate();
+          return;
+        // }, 1000);
+
+      }
+      console.log($("caption").find("span").eq(i));
+      console.log(i);
+      $("caption").find("span").eq(i).css({"opacity":1});
+        
+      i++;
+
+  }, 1000);
+
+}
