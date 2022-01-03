@@ -29,8 +29,8 @@ $(function(){
 
     let status="stop";
     // let roulette_audio=new Audio("audio/hito_ta_furueru01.mp3");
-    let roulette_audio=new Audio("audio/bell.mp3");
-    let roulette_check_audio=new Audio("audio/zyaaaann.mp3");
+    let roulette_audio=new Audio("../common/audio/bell.mp3");
+    let roulette_check_audio=new Audio("../common/audio/zyaaaann.mp3");
 
     $("#output_btn").on("click",function(){
 
@@ -70,27 +70,26 @@ $(function(){
 
                         clearInterval(intervalId);
                         roulette_audio.pause();
+                        roulette_audio.currentTime=0;
                         roulette_check_audio.play();
                         check_list.push(num);
                         check_list=check_list.filter((x)=>{return x!="終了";});
-                        
+
                         if (window.localStorage) {
                             localStorage.setItem("bingo_num_data",JSON.stringify(check_list));
                         }
                         $("#output_btn").val("番号出す");
 
-
                     }
-            
 
                 }, 100);
-                
+
                 break;
             case "start":
                 status="stop";
 
                 break;
-        
+
             default:
                 break;
         }
