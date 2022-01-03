@@ -40,13 +40,23 @@ $(function(){
 
   $("#make_card_btn").on("click",function () { 
   
+    let roulette_audio=new Audio("../common/audio/bell.mp3");
+    let roulette_check_audio=new Audio("../common/audio/zyaaaann.mp3");
+  
     switch (create_status) {
       case "init":
         create_status="start";
         $(this).val("ストップ");
         let intervalId=setInterval(() => {
+          roulette_audio.play();
+          roulette_audio.loop=true;
+    
           if (create_status=="stop") {
             clearInterval(intervalId);
+            roulette_audio.pause();
+            roulette_audio.currentTime=0;
+            roulette_check_audio.play();
+  
           }
           make_card(make_data());
           
@@ -85,7 +95,6 @@ function hide_animate(){
   let i=0;
 
   let animateId=setInterval(() => {
-
       if (i>=5) {
         clearInterval(animateId);
         // setTimeout(() => {
