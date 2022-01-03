@@ -28,12 +28,19 @@ $(function(){
     create_check_list(check_list);
 
     let status="stop";
+    // let roulette_audio=new Audio("audio/hito_ta_furueru01.mp3");
+    let roulette_audio=new Audio("audio/bell.mp3");
 
     $("#output_btn").on("click",function(){
 
         switch (status) {
             case "stop":
                 status="start";
+                roulette_audio.play();
+                // roulette_audio.onended=function(){
+                //     roulette_audio.currentTime=0;
+                // }
+                roulette_audio.loop=true;
                 $("#output_btn").val("ストップ");
                 create_check_list(check_list);
 
@@ -61,7 +68,7 @@ $(function(){
                     if (status=="stop") {
 
                         clearInterval(intervalId);
-
+                        roulette_audio.pause();
                         check_list.push(num);
                         check_list=check_list.filter((x)=>{return x!="終了";});
                         
