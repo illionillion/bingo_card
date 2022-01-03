@@ -30,6 +30,7 @@ $(function(){
     let status="stop";
     // let roulette_audio=new Audio("audio/hito_ta_furueru01.mp3");
     let roulette_audio=new Audio("audio/bell.mp3");
+    let roulette_check_audio=new Audio("audio/zyaaaann.mp3");
 
     $("#output_btn").on("click",function(){
 
@@ -69,6 +70,7 @@ $(function(){
 
                         clearInterval(intervalId);
                         roulette_audio.pause();
+                        roulette_check_audio.play();
                         check_list.push(num);
                         check_list=check_list.filter((x)=>{return x!="終了";});
                         
