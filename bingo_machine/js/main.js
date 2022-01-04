@@ -30,7 +30,7 @@ $(function(){
     let status="stop";
     // let roulette_audio=new Audio("audio/hito_ta_furueru01.mp3");
     let roulette_audio=new Audio("../common/audio/bell.mp3");
-    let roulette_check_audio=new Audio("../common/audio/zyaaaann.mp3");
+    let roulette_check_audio;
 
     $("#output_btn").on("click",function(){
 
@@ -71,7 +71,9 @@ $(function(){
                         clearInterval(intervalId);
                         roulette_audio.pause();
                         roulette_audio.currentTime=0;
+                        roulette_check_audio=new Audio("../common/audio/zyaaaann.mp3")
                         roulette_check_audio.play();
+                        roulette_check_audio=null;
                         check_list.push(num);
                         check_list=check_list.filter((x)=>{return x!="終了";});
 

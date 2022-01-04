@@ -21,7 +21,13 @@
 }
 
 #output_num{
-    font-size: 2em;
+    font-size: 4em;
+}
+
+#output_btn{
+    font-size: 1.2em;
+    border-radius: 25px;
+    width: 50%;
 }
 
 table{
