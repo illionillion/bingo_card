@@ -1,5 +1,5 @@
 "use strict";
-
+// window.console.log=function(){return;};
 let check_list=[];
 let tablewidth=false;
 
@@ -63,7 +63,7 @@ $(function(){
                             break;
                         }
                     }
-                    console.log(check_list);
+                    // console.log(check_list);
                     $("#output_num").html(num);
 
                     if (status=="stop") {
