@@ -78,25 +78,32 @@ $(function(){
 })
 
 function bingo_check(){
+  let bingo_cnt_col=new Array(5).fill(true);
+  // console.log(bingo_cnt_col);
   $("tr").each(function(tr_i,tr_e){
     // console.log(tr_e);
-    let bingo_cnt=true;
+    let bingo_cnt_row=true;
     $(tr_e).find("td").each(function(td_i,td_e){
       if (!$(td_e).hasClass("hole")) {
         // console.log(td_i+"："+$(td_e).html());
-        bingo_cnt=false;
+        bingo_cnt_row=false;
+        bingo_cnt_col[td_i]=false;
         // break;
       }
     })
-    if (bingo_cnt) {
+    if (bingo_cnt_row) {
       console.log(tr_i+"　bingo");
     }
+
   })
 
+  for (const key in bingo_cnt_col) {
+    if (Object.hasOwnProperty.call(bingo_cnt_col, key)) {
+      if (bingo_cnt_col[key]) {
+        console.log(key+"　bingo");
+      }
+    }
+  }
 
-  // for (let i = 0; i < 5; i++) {
-  //   for (let j = 0; j < 5; j++) {
-  //     console.log($("tr").eq(i));
-  //   }
-  // }
+  
 }
