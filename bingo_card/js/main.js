@@ -14,6 +14,7 @@ function make_hole(ele){
     hole_list=hole_list.filter((x)=>{return x!=$(ele).data("hole_id");});
   }
   // console.log(hole_list);
+  bingo_check();
   localStorage.setItem("bingo_card_hole_data",JSON.stringify(hole_list));
 }
 
@@ -75,3 +76,27 @@ $(function(){
   appear_animation();
 
 })
+
+function bingo_check(){
+  $("tr").each(function(tr_i,tr_e){
+    // console.log(tr_e);
+    let bingo_cnt=true;
+    $(tr_e).find("td").each(function(td_i,td_e){
+      if (!$(td_e).hasClass("hole")) {
+        // console.log(td_i+"："+$(td_e).html());
+        bingo_cnt=false;
+        // break;
+      }
+    })
+    if (bingo_cnt) {
+      console.log(tr_i+"　bingo");
+    }
+  })
+
+
+  // for (let i = 0; i < 5; i++) {
+  //   for (let j = 0; j < 5; j++) {
+  //     console.log($("tr").eq(i));
+  //   }
+  // }
+}
