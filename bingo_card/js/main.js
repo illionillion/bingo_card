@@ -88,7 +88,10 @@ function bingo_check(){
         // console.log(td_i+"："+$(td_e).html());
         bingo_cnt_row=false;
         bingo_cnt_col[td_i]=false;
-        // break;
+        if ((tr_i==0&&td_i==0)||(tr_i==1&&td_i==1)||(tr_i==2&&td_i==2)||(tr_i==3&&td_i==3)||(tr_i==4&&td_i==4)) {
+          // console.log("右下がり斜め");
+          // console.log(td_e);
+        }
       }
     })
     if (bingo_cnt_row) {
@@ -105,5 +108,5 @@ function bingo_check(){
     }
   }
 
-  
+
 }
