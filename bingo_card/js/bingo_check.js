@@ -25,9 +25,7 @@ function bingo_check(){
       })
       if (bingo_cnt_row) {
         // console.log(tr_i+"　bingo");
-        setTimeout(() => {
-          alert("ビンゴ！！");        
-        }, 100);
+        bingo_effect()
       }
   
     })
@@ -35,27 +33,28 @@ function bingo_check(){
     // console.log(bingo_cnt_diagonal["left_to_right"]);
     if (bingo_cnt_diagonal["left_to_right"]) {
         // console.log("右下がり斜めビンゴ");
-        setTimeout(() => {
-          alert("ビンゴ！！");        
-        }, 100);
+        bingo_effect()
     }
     if (bingo_cnt_diagonal["right_to_left"]) {
         // console.log("左下がり斜めビンゴ");
-        setTimeout(() => {
-          alert("ビンゴ！！");        
-        }, 100);
+        bingo_effect()
     }
   
     for (const key in bingo_cnt_col) {
       if (Object.hasOwnProperty.call(bingo_cnt_col, key)) {
         if (bingo_cnt_col[key]) {
           // console.log(key+"　bingo");
-          setTimeout(() => {
-            alert("ビンゴ！！");        
-          }, 100);
+          bingo_effect();
         }
       }
-    }
-  
-  
+    } 
+}
+
+function bingo_effect() {
+  let bingo_LvUp=new Audio("../common/audio/LvUp.mp3");
+  bingo_LvUp.play();
+  setTimeout(() => {
+
+    alert("ビンゴ！！");        
+  }, 100);
 }
