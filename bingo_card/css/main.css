@@ -7,6 +7,64 @@
 
 }
 
+#float_screen{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.493);
+  top: 0%;
+  left: 0%;
+  position: fixed;
+  display: none;
+  position: absolute;
+}
+
+#bingo_message{
+  position: relative;
+  width: 100%;
+  /* width: 50%; */
+  text-align: center;
+  top: 50%;
+  /* left: 50%; */
+  font-size: 3em;
+  display        : inline-block;
+  color          : #ff0000;            /* 文字の色 */
+  /* font-size      : 36pt;*//*               文字のサイズ */
+  letter-spacing : 4px;                /* 文字間 */
+  text-shadow    : 
+       2px  2px 1px #ffff1a,
+      -2px  2px 1px #ffff1a,
+       2px -2px 1px #ffff1a,
+      -2px -2px 1px #ffff1a,
+       2px  0px 1px #ffff1a,
+       0px  2px 1px #ffff1a,
+      -2px  0px 1px #ffff1a,
+       0px -2px 1px #ffff1a;        /* 文字の影 */
+}
+
+#float_close{
+  position: relative;
+  top: 20%;
+  /* right: 0%; */
+  margin: auto;
+  text-align: center;
+  width: 30%;
+  font-size: 1.2em;
+
+  /* display        : inline-block; */
+  color          : #000;            /* 文字の色 */
+  font-size      : 36pt;               /* 文字のサイズ */
+  letter-spacing : 4px;                /* 文字間 */
+  text-shadow    : 
+       2px  2px 1px #fff,
+      -2px  2px 1px #fff,
+       2px -2px 1px #fff,
+      -2px -2px 1px #fff,
+       2px  0px 1px #fff,
+       0px  2px 1px #fff,
+      -2px  0px 1px #fff,
+       0px -2px 1px #fff;        /* 文字の影 */
+}
+
 table{
   margin: auto;
   width: 300px;

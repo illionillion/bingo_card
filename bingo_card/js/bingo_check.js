@@ -54,7 +54,10 @@ function bingo_effect() {
   let bingo_LvUp=new Audio("../common/audio/LvUp.mp3");
   bingo_LvUp.play();
   setTimeout(() => {
-
-    alert("ビンゴ！！");        
+    $("#float_screen").fadeIn();
+    // alert("ビンゴ！！");
+    $("#float_close").on("click",function(){
+      $("#float_screen").fadeOut();
+    })
   }, 100);
 }
