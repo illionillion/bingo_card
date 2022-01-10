@@ -19,6 +19,8 @@ function make_hole(ele){
 }
 
 $(function(){
+
+  $("*").on("contextmenu",function(){return false;})
   
   if (JSON.parse(localStorage.getItem("bingo_card_hole_data"))) {
     hole_list=JSON.parse(localStorage.getItem("bingo_card_hole_data"));

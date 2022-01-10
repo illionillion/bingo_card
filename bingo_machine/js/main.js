@@ -25,6 +25,8 @@ $(window).on('load resize',function(){
 
 $(function(){
 
+    $("*").on("contextmenu",function(){return false;})
+
     create_check_list(check_list);
 
     let status="stop";
