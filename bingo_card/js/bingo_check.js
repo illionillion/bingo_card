@@ -25,7 +25,8 @@ function bingo_check(){
       })
       if (bingo_cnt_row) {
         // console.log(tr_i+"　bingo");
-        bingo_effect()
+        bingo_effect();
+        return;
       }
   
     })
@@ -33,11 +34,13 @@ function bingo_check(){
     // console.log(bingo_cnt_diagonal["left_to_right"]);
     if (bingo_cnt_diagonal["left_to_right"]) {
         // console.log("右下がり斜めビンゴ");
-        bingo_effect()
+        bingo_effect();
+        return;
     }
     if (bingo_cnt_diagonal["right_to_left"]) {
         // console.log("左下がり斜めビンゴ");
-        bingo_effect()
+        bingo_effect();
+        return;
     }
   
     for (const key in bingo_cnt_col) {
@@ -45,6 +48,7 @@ function bingo_check(){
         if (bingo_cnt_col[key]) {
           // console.log(key+"　bingo");
           bingo_effect();
+          return;
         }
       }
     } 
