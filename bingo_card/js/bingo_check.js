@@ -3,6 +3,8 @@ function bingo_check(){
     // console.log(bingo_cnt_col);
     let bingo_cnt_diagonal={"left_to_right":true,"right_to_left":true};
   
+    let bingo_alert=true;
+
     $("tr").each(function(tr_i,tr_e){
       // console.log(tr_e);
       let bingo_cnt_row=true;
@@ -23,8 +25,9 @@ function bingo_check(){
           }
         }
       })
-      if (bingo_cnt_row) {
+      if (bingo_cnt_row && bingo_alert) {
         // console.log(tr_i+"　bingo");
+        bingo_alert=false;
         bingo_effect();
         return;
       }
@@ -32,21 +35,24 @@ function bingo_check(){
     })
   
     // console.log(bingo_cnt_diagonal["left_to_right"]);
-    if (bingo_cnt_diagonal["left_to_right"]) {
+    if (bingo_cnt_diagonal["left_to_right"] && bingo_alert) {
         // console.log("右下がり斜めビンゴ");
+        bingo_alert=false;
         bingo_effect();
         return;
     }
-    if (bingo_cnt_diagonal["right_to_left"]) {
+    if (bingo_cnt_diagonal["right_to_left"] && bingo_alert) {
         // console.log("左下がり斜めビンゴ");
+        bingo_alert=false;
         bingo_effect();
         return;
     }
   
     for (const key in bingo_cnt_col) {
       if (Object.hasOwnProperty.call(bingo_cnt_col, key)) {
-        if (bingo_cnt_col[key]) {
+        if (bingo_cnt_col[key] && bingo_alert) {
           // console.log(key+"　bingo");
+          bingo_alert=false;
           bingo_effect();
           return;
         }
