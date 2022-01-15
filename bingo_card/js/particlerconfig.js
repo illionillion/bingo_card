@@ -44,18 +44,18 @@ $(window).on("load",function(){
               "enable":false,
             },
             "move":{
-              "enable":true,
-            "speed":10,//この数値を小さくするとゆっくりな動きになる
-            "direction":"bottom",//下に向かって落ちる
-            "random":false,//動きはランダムにならないように
-            "straight":false,//動きをとどめない
-            "out_mode":"out",//画面の外に出るように描写
-            "bounce":false,//跳ね返りなし
-              "attract":{
-                "enable":false,
-                "rotateX":600,
-                "rotateY":1200
-              }
+                "enable":true,
+                "speed":10,//この数値を小さくするとゆっくりな動きになる
+                "direction":"bottom",//下に向かって落ちる
+                "random":false,//動きはランダムにならないように
+                "straight":false,//動きをとどめない
+                "out_mode":"out",//画面の外に出るように描写
+                "bounce":false,//跳ね返りなし
+                "attract":{
+                    "enable":false,
+                    "rotateX":600,
+                    "rotateY":1200
+                }
             }
           },
           "interactivity":{

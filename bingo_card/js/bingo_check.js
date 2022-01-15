@@ -64,10 +64,15 @@ function bingo_effect() {
   let bingo_LvUp=new Audio("../common/audio/LvUp.mp3");
   bingo_LvUp.play();
   setTimeout(() => {
-    $("#float_screen").fadeIn();
+    // $("#float_screen").fadeIn();
+    $("#float_screen").addClass("appear");
+    $("#float_screen").animate({ opacity: 1 }, 500);
     // alert("ビンゴ！！");
     $("#float_close").on("click",function(){
-      $("#float_screen").fadeOut();
+      // $("#float_screen").fadeOut();
+      $("#float_screen").animate({ opacity: 0 }, 500,function(){
+        $("#float_screen").removeClass("appear");
+      })
     })
   }, 100);
 }
