@@ -16,6 +16,7 @@
   position: fixed;
   display: none;
   position: absolute;
+  overflow: hidden;
 }
 
 #bingo_message{
