@@ -1,3 +1,17 @@
+function make_hole(ele){
+  // console.log(ele);
+  $(ele).toggleClass("hole");
+  // console.log($(ele).data("hole_id"));
+  if ($(ele).hasClass("hole")) {
+    hole_list.push($(ele).data("hole_id"));
+  }else{
+    hole_list=hole_list.filter((x)=>{return x!=$(ele).data("hole_id");});
+  }
+  // console.log(hole_list);
+  bingo_check();
+  localStorage.setItem("bingo_card_hole_data",JSON.stringify(hole_list));
+}
+
 function bingo_check(){
     let bingo_cnt_col=new Array(5).fill(true);
     // console.log(bingo_cnt_col);
