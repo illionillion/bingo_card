@@ -1,4 +1,6 @@
 "use strict";
+import { make_data } from "./make_card.js";
+import { make_card } from "./make_card.js";
 // console.log("ok");
 
 let create_status="init";
@@ -14,13 +16,13 @@ $(function(){
 
   if (JSON.parse(localStorage.getItem("bingo_card_data"))) {
     // console.log(JSON.parse(localStorage.getItem("bingo_card_data")));
-    make_card(JSON.parse(localStorage.getItem("bingo_card_data")));
+    make_card(JSON.parse(localStorage.getItem("bingo_card_data")),hole_list);
     create_status="start";
     $("#make_card_btn").val("作成済み");
   }else{
 
     let initarr=new Array(5).fill(new Array(5).fill(""));
-    make_card(initarr);
+    make_card(initarr,hole_list);
   }
 
   $("#make_card_btn").on("click",function () { 
@@ -43,7 +45,7 @@ $(function(){
             roulette_check_audio.play();
   
           }
-          make_card(make_data());
+          make_card(make_data(),hole_list);
           
         }, 100);
         break;

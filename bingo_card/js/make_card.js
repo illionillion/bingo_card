@@ -1,4 +1,4 @@
-function make_data(){
+export function make_data(){
 
   let bingo_data=[];//ビンゴカードに割り振る数字
   let bingo_rand=[];//ビンゴカードで既出の数字
@@ -40,7 +40,7 @@ function make_data(){
   return bingo_data;
 }
 
-function make_card(bingo_data){
+export function make_card(bingo_data,hole_list){
 
   // $("#bingo_card").html("");
   $("#bingo_card tbody").remove();
@@ -61,7 +61,7 @@ function make_card(bingo_data){
         if (hole_list.indexOf(i+"-"+j)!=-1) {
           $(td_ele).addClass("hole");
         }
-        td_ele.onclick=function(){make_hole(this);};          
+        td_ele.onclick=function(){make_hole(this,hole_list);};          
       }
       
       td_fragment.appendChild(td_ele);

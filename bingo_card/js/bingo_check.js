@@ -1,4 +1,4 @@
-function make_hole(ele){
+function make_hole(ele,hole_list){
   // console.log(ele);
   $(ele).toggleClass("hole");
   // console.log($(ele).data("hole_id"));
